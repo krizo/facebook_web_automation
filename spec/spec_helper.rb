@@ -16,9 +16,18 @@ RSpec.configure do |config|
   config.formatter = :documentation
 
   config.before(:all) do
-    browser = ENV['BROWSER'] || :chrome
-    switches = [ '--disable-notifications' ]
-    @browser = Watir::Browser.new(browser.to_sym, switches: switches)
+    browser_name = ENV['BROWSER'] || :chrome
+    @browser = case browser_name.to_sym
+    when :chrome
+      switches = [ '--disable-notifications' ]
+      Watir::Browser.new(:chrome, switches: switches)
+    when :firefox
+      profile = Selenium::WebDriver::Firefox::Profile.new
+      profile['dom.webnotifications.enabled'] = false
+      Watir::Browser.new(:firefox, profile: profile)
+    else
+      raise "Unsupported browser #{browser_name}"
+    end
     @login = ENV['FACEBOOK_LOGIN']
     @password = ENV['FACEBOOK_PASSWORD']
     unless @login && @password
@@ -27,6 +36,6 @@ RSpec.configure do |config|
   end
 
   config.after(:all) do
-    @browser.close
+    @browser.close if @browser
   end
 end
