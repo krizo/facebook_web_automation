@@ -4,8 +4,9 @@ Simple web automation suite based on [watir](http://watir.com/) framework.
 
 ### Preconditions
 - ruby (prefrably 2.3.4)
-- chrome or firefox drivers in path
 - test account on Facebook
+
+Specific web drivers (chrome or firefox should be automatically downloaded (stored in ~/.webdrivers folder) and ready to work thanks to [webdrivers gem](https://github.com/titusfortner/webdrivers).
 
 ### Running spec
 Go to main folder and issue the command:
