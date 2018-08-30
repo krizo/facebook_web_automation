@@ -8,6 +8,6 @@ Simple web automation suite based on watir framework.
 - test account on Facebook
 
 ### Running spec
-Go to main folder and issuec command:
+Go to main folder and issue the command:
 
 `BROWSER=chrome FACEBOOK_LOGIN=your_facebook_test_login FACEBOOK_PASSWORD=your_facebook_test_password bundle exec rspec spec/facebook_spec.rb`
