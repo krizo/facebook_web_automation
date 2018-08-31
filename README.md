@@ -3,7 +3,10 @@
 Simple web automation suite based on [watir](http://watir.com/) framework.
 
 ### Preconditions
-- this repo cloned (git clone git@github.com:krizo/facebook_web_automation.git)
+- this repo cloned
+
+  `git clone git@github.com:krizo/facebook_web_automation.git`
+  
 - ruby (preferably 2.3.4)
 - test account on Facebook
 
