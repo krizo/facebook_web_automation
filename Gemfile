@@ -7,4 +7,4 @@ gem 'pry'
 gem 'require_all'
 gem 'rspec-wait'
 gem 'faker'
-gem "webdrivers", "~> 3.0"
+gem 'webdrivers', '~> 3.0'

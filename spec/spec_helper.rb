@@ -17,14 +17,14 @@ RSpec.configure do |config|
 
   config.before(:all) do
     browser_name = ENV['BROWSER'] || :chrome
-    @browser = case browser_name.to_sym
+    case browser_name.to_sym
     when :chrome
-      switches = [ '--disable-notifications' ]
-      Watir::Browser.new(:chrome, switches: switches)
+      switches = ['--disable-notifications']
+      @browser = Watir::Browser.new(:chrome, switches: switches)
     when :firefox
       profile = Selenium::WebDriver::Firefox::Profile.new
       profile['dom.webnotifications.enabled'] = false
-      Watir::Browser.new(:firefox, profile: profile)
+      @browser = Watir::Browser.new(:firefox, profile: profile)
     else
       raise "Unsupported browser #{browser_name}"
     end

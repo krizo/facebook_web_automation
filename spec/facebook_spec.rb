@@ -3,13 +3,13 @@ require 'spec_helper'
 describe "Facebook test" do
   include Tasks::Facebook
 
-  let(:status_msg) { ENV['STATUS'] || Faker::Lorem::paragraph }
+  let(:status_msg) { ENV['STATUS'] || Faker::Lorem.paragraph }
 
   it "login to facebook" do
     login_to_facebook(login: @login, password: @password)
   end
 
-  it "post status message" do
+  it "post status message and check it on feed" do
     post_status(status_msg: status_msg)
     check_latest_post(expected_status_msg: status_msg)
   end
